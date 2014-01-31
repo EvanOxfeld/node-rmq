@@ -1,0 +1,30 @@
+{
+  "name": "node-rmq",
+  "version": "0.0.0",
+  "description": "Message queue powered by Redis",
+  "author": "Christopher Gillis",
+  "maintainers": [
+    {
+      "name": "Christopher Gillis",
+      "email": "christopher.l.gillis@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/z3roshot/node-rmq.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "directories": {
+  },
+  "keywords": [
+    "redis",
+    "mq"
+  ],
+  "main": "rmq.js",
+  "scripts": {
+  }
+}
