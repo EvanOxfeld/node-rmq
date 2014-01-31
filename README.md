@@ -1,1 +1,1 @@
-# Simple message queue lib powered by Redis
+### Simple message queue powered by Redis
