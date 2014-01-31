@@ -1,6 +1,6 @@
 'use strict';
 
-var publisher = require('publisher');
+var publisher = require('./lib/publisher');
 
 exports.publish = function(channel, message){
 	publisher.publish(channel, message);
