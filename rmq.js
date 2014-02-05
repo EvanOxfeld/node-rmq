@@ -1,51 +1,34 @@
 'use strict';
 
-var publisher = require('./lib/publisher');
+var publisher = require('./lib/publisher'),
+	subscriptions = require('./lib/subscriptions');
 
-var uuid = require('node-uuid');
+module.exports = {
+	publish: function(channel, message){
+		console.log("Publishing message to channel: " + channel);
+		console.log("Message body: " + JSON.stringify(message));
 
-/**
- * Publish a message on the message bus
- * @param channel
- * @param message
- */
-exports.publish = function(channel, message){
-	publisher.publish(channel, message);
-};
+		publisher.publish(channel, message);
+	},
 
-var subscriptions = require('./lib/subscriptions');
+	subscribe: function(channel, callback){
+		if(!callback){
+			throw new Error("callback null");
+		}
 
-/**
- * @param channel - channel to listen for
- * @param callback - function executed when channel message received
- * @returns subscription id - this is required to unsubscribe to a channel
- */
-exports.subscribe = function(channel, callback){
-	var subscription = {
-		callback: callback,
-		id: generateSubscriptionId()
-	};
-	subscriptions.subscribe(channel, subscription);
+		console.log("Subscribing to " + channel);
 
-	return subscription.id;
-};
+		subscriptions.subscribe(channel, callback);
+	},
 
-/**
- *
- * @param channel - the channel to stop listening to
- * @param subscriptionId - the subscriptionId returned by the subscribe function
- */
-exports.unsubscribe = function(channel, subscriptionId){
-	if(!channel){
-		// TODO handle error
+	unsubscribe: function(channel, subscriptionId){
+		if(!channel){
+			// TODO handle error
+		}
+		if(!subscriptionId){
+			// TODO handle error
+		}
+
+		subscriptions.unsubscribe(channel, subscriptionId);
 	}
-	if(!subscriptionId){
-		// TODO handle error
-	}
-
-	subscriptions.unsubscribe(channel, subscriptionId);
 };
-
-function generateSubscriptionId(){
-	return uuid.v4();
-}
