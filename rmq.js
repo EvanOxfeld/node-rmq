@@ -11,6 +11,10 @@ var channelError = "You are attempting to act on a channel but your channel is n
 
 module.exports = {
 	publish: function(channel, message, callback){
+		callback = callback || function(){
+
+		};
+
 		if(!channel){
 			var err = new Error(channelError);
 			console.warn(err.stack);
@@ -36,6 +40,10 @@ module.exports = {
 	},
 
 	subscribe: function(channel, subCallback, errCallback){
+		errCallback = errCallback || function(){
+
+		};
+
 		if(!channel){
 			var err = new Error(channelError);
 			console.warn(err.stack);

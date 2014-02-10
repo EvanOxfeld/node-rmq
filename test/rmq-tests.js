@@ -24,6 +24,10 @@ describe("rmq", function(){
 				expect(error).to.not.exist;
 			});
 		});
+
+		it("should accept an undefined callback", function(){
+			expect(rmq.publish(testChannel, testMessage)).to.not.throw.error;
+		})
 	});
 
 	describe("subscribe", function(){
@@ -44,5 +48,9 @@ describe("rmq", function(){
 				expect(error).to.not.exist;
 			});
 		});
+
+		it("should accept an undefined callback", function(){
+			expect(rmq.subscribe(testChannel, testCallback)).to.not.throw.error;
+		})
 	});
 });
