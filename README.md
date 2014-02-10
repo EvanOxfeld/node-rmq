@@ -37,7 +37,11 @@ Optionally both subscribing and publishing will accept a callback as a third par
 
 ```bash
 queue.publish('someChannel', messageData, function(error){
-  // Handle the error here
+  // error will represent a problem adding the message to the queue
+});
+
+queue.subscribe('someChannel', somePreviouslyDefinedFunction, function(error){
+  // error will represent a problem handling the message or subscribing to the channel
 });
 ```
 
