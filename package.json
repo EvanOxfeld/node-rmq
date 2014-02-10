@@ -1,6 +1,6 @@
 {
   "name": "node-rmq",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Message Queue powered by Redis",
   "author": "Christopher Gillis",
   "maintainers": [
