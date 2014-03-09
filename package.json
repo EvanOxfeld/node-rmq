@@ -30,5 +30,7 @@
     "mq"
   ],
   "main": "rmq.js",
-  "scripts": {}
+  "scripts": {
+    "test": "mocha -R spec"
+  }
 }
